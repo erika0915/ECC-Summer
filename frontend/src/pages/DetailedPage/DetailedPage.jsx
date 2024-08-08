@@ -1,5 +1,6 @@
 import {
   GlobalStyle,
+  PageContainer,
   AppHeader,
   LogoContainer,
   AppNav,
@@ -9,50 +10,16 @@ import {
   AppNavList,
   AppNavItem,
   LoginButton,
-  AppMain,
 } from "./styles";
 import { Link } from "react-router-dom";
-import BankSection from "./components/BankSection";
+import Information from "./components/Information";
 
-const bankData = [
-  {
-    name: "KB국민은행",
-    products: [
-      { id: 1, name: "상품명", link: "#", description: "특징 한 눈에 보기" },
-    ],
-    logoKey: "kb",
-  },
-  {
-    name: "NH농협은행",
-    products: [
-      { id: 2, name: "상품명", link: "#", description: "특징 한 눈에 보기" },
-    ],
-    logoKey: "nh",
-  },
-  {
-    name: "신한은행",
-    products: [
-      { id: 3, name: "상품명", link: "#", description: "특징 한 눈에 보기" },
-    ],
-    logoKey: "sh",
-  },
-  {
-    name: "우리은행",
-    products: [
-      { id: 4, name: "상품명", link: "#", description: "특징 한 눈에 보기" },
-    ],
-    logoKey: "woori",
-  },
-  {
-    name: "하나은행",
-    products: [
-      { id: 5, name: "상품명", link: "#", description: "특징 한 눈에 보기" },
-    ],
-    logoKey: "hana",
-  },
-];
+const bankData = {
+  name: "KB국민은행",
+  logoKey: "kb",
+};
 
-const DepositPage = () => {
+const DetailedPage = () => {
   return (
     <>
       <GlobalStyle />
@@ -83,14 +50,12 @@ const DepositPage = () => {
           </AppNavList>
           <LoginButton to="/login">LOGIN / SIGN UP</LoginButton>
         </AppNav>
-        <AppMain>
-          {bankData.map((bank) => (
-            <BankSection bank={bank} />
-          ))}
-        </AppMain>
+        <PageContainer>
+          <Information bank={bankData} />
+        </PageContainer>
       </div>
     </>
   );
 };
 
-export default DepositPage;
+export default DetailedPage;
