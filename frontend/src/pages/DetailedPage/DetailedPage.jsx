@@ -9,40 +9,16 @@ import {
   AppNavList,
   AppNavItem,
   LoginButton,
-  AppMain,
 } from "./styles";
 import { Link } from "react-router-dom";
-import BankSection from "./components/BankSection";
+import Information from "./components/Information";
 
-const bankData = [
-  {
-    name: "KB국민은행",
-    products: [{ id: 1, name: "상품명", link: "#", description: "특징 한 눈에 보기" }],
-    logoKey: "kb",
-  },
-  {
-    name: "NH농협은행",
-    products: [{ id: 2, name: "상품명", link: "#", description: "특징 한 눈에 보기" }],
-    logoKey: "nh",
-  },
-  {
-    name: "신한은행",
-    products: [{ id: 3, name: "상품명", link: "#", description: "특징 한 눈에 보기" }],
-    logoKey: "sh",
-  },
-  {
-    name: "우리은행",
-    products: [{ id: 4, name: "상품명", link: "#", description: "특징 한 눈에 보기" }],
-    logoKey: "woori",
-  },
-  {
-    name: "하나은행",
-    products: [{ id: 5, name: "상품명", link: "#", description: "특징 한 눈에 보기" }],
-    logoKey: "hana",
-  },
-];
+const bankData = {
+  name: "KB국민은행",
+  logoKey: "kb",
+};
 
-export const CheckCardPage = () => {
+const DetailedPage = () => {
   return (
     <>
       <GlobalStyle />
@@ -58,7 +34,7 @@ export const CheckCardPage = () => {
             <SearchIcon />
           </SearchContainer>
           <AppNavList>
-            <AppNavItem>
+            <AppNavItem className="active">
               <Link to="/deposit">예금</Link>
             </AppNavItem>
             <AppNavItem>
@@ -67,18 +43,16 @@ export const CheckCardPage = () => {
             <AppNavItem>
               <Link to="/loan">대출</Link>
             </AppNavItem>
-            <AppNavItem className="active">
+            <AppNavItem>
               <Link to="/checkcard">체크카드</Link>
             </AppNavItem>
           </AppNavList>
           <LoginButton to="/login">LOGIN / SIGN UP</LoginButton>
         </AppNav>
-        <AppMain>
-          {bankData.map((bank) => (
-            <BankSection bank={bank} />
-          ))}
-        </AppMain>
+        <Information bank={bankData} />
       </div>
     </>
   );
 };
+
+export default DetailedPage;

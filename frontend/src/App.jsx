@@ -9,7 +9,7 @@ import LoanPage from "./pages/ProductPage/LoanPage";
 import { CheckCardPage } from "./pages/ProductPage";
 // TODO: 글로벌 스타일 전역으로 옮기기
 import { GlobalStyle } from "./pages/ProductPage/styles";
-//import DetailedPage from "./pages/DetailedPage/DetailedPage"; <Route path="/detailedpage" element={<DetailedPage />} />
+import DetailedPage from "./pages/DetailedPage/DetailedPage";
 
 const App = () => {
   return (
@@ -23,6 +23,7 @@ const App = () => {
         <Route path="/saving" element={<SavingPage />} />
         <Route path="/loan" element={<LoanPage />} />
         <Route path="/checkcard" element={<CheckCardPage />} />
+        <Route path="/detailedpage" element={<DetailedPage />} />
       </Routes>
     </Router>
   );
